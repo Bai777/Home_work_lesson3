@@ -78,10 +78,6 @@ public class Solution3_two_players {
                 }
             }
 
-
-
-
-
     public static void main(String[] args) {
         generateNumber();
     }
