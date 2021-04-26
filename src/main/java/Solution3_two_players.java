@@ -28,7 +28,7 @@ public class Solution3_two_players {
         String winner = nameStartedGamers(nameGamer1, nameGamer2);
 
         int count = 3;
-        System.out.println("Угадайте число от 0 до 9\nУ вас попыток " + count);
+        System.out.println("Угадайте число от 0 до 9\nУ вас попыток " + count--);
         for (int i = 0; i < numberOfAttempts; i++) {
 
             System.out.println("Ходит игрок " + winner);
@@ -36,26 +36,28 @@ public class Solution3_two_players {
             Scanner in = new Scanner(System.in);
             int valueGamer = in.nextInt();
 
-             if(count == 0){
-                break;
-            }
-             else if (valuePC == valueGamer){
+//             if(count == 0){
+//                 System.out.println("Вы не угадали. Правильный ответ " + valuePC);
+//                break;
+//            }
+             if (valuePC == valueGamer){
                  System.out.println("Вы угадали!!!\nПобедил игрок " + winner);
+                 System.out.println("Правильный ответ " + valuePC);
                  break;
              }
             else if (valuePC > valueGamer) {
-                System.out.println("Вы ввели слишком маленькое значение\nПопробуйте снова)\nУ вас осталось попыток " + --count);
+                System.out.println("Вы ввели слишком маленькое значение\nПопробуйте снова)\nУ вас осталось попыток " + count--);
             }
 
             else if (valuePC < valueGamer) {
-                System.out.println("Вы ввели слишком большое значение\nПопробуйте снова)\nУ вас осталось попыток " + --count);
+                System.out.println("Вы ввели слишком большое значение\nПопробуйте снова)\nУ вас осталось попыток " + count--);
             }
 
             if (winner == nameGamer1)
                 winner = nameGamer2;
             else winner = nameGamer1;
         }
-        System.out.println("Правильный ответ " + valuePC);
+
         returnGame();
     }
 
