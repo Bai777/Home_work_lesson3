@@ -19,7 +19,8 @@ public class Solution3_two_players {
 
     public static void game(int valuePC){
 
-        System.out.println(valuePC);
+        //System.out.println(valuePC);
+
         System.out.println("Введите имена игроков: ");
         Scanner inName = new Scanner(System.in);
         String nameGamer1 = inName.next();
@@ -36,22 +37,22 @@ public class Solution3_two_players {
             Scanner in = new Scanner(System.in);
             int valueGamer = in.nextInt();
 
-//             if(count == 0){
-//                 System.out.println("Вы не угадали. Правильный ответ " + valuePC);
-//                break;
-//            }
              if (valuePC == valueGamer){
                  System.out.println("Вы угадали!!!\nПобедил игрок " + winner);
                  System.out.println("Правильный ответ " + valuePC);
                  break;
              }
-            else if (valuePC > valueGamer) {
+            else if (valuePC > valueGamer && count != 0) {
                 System.out.println("Вы ввели слишком маленькое значение\nПопробуйте снова)\nУ вас осталось попыток " + count--);
             }
 
-            else if (valuePC < valueGamer) {
+            else if (valuePC < valueGamer && count != 0) {
                 System.out.println("Вы ввели слишком большое значение\nПопробуйте снова)\nУ вас осталось попыток " + count--);
             }
+             else {
+                 System.out.println("Вы не угадали. Правильный ответ " + valuePC);
+                 break;
+             }
 
             if (winner == nameGamer1)
                 winner = nameGamer2;

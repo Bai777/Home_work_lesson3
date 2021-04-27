@@ -9,16 +9,13 @@ public class Solution3_one_player {
     }
 
     public static void game(int valuePC){
-        System.out.println(valuePC);
+        //System.out.println(valuePC);
 
         int count = 3;
         System.out.println("Угадайте число от 0 до 9\nУ вас попыток " + count--);
         for (int i = 0; i < numberOfAttempts; i++) {
 
-//            if(count == 0){
-//                System.out.println("Вы не угадали. Правильный ответ " + valuePC);
-//                break;
-//            }
+
 
             Scanner in = new Scanner(System.in);
             int valueGamer = in.nextInt();
@@ -29,14 +26,17 @@ public class Solution3_one_player {
                 break;
             }
 
-            else if (valuePC > valueGamer) {
+            else if (valuePC > valueGamer && count != 0) {
                 System.out.println("Вы ввели слишком маленькое значение\nПопробуйте снова)\nУ вас осталось попыток " + count--);
             }
 
-            else if (valuePC < valueGamer) {
+            else if (valuePC < valueGamer && count != 0) {
                 System.out.println("Вы ввели слишком большое значение\nПопробуйте снова)\nУ вас осталось попыток " + count--);
             }
-
+            else {
+                System.out.println("Вы не угадали. Правильный ответ " + valuePC);
+                break;
+            }
 
         }
 
